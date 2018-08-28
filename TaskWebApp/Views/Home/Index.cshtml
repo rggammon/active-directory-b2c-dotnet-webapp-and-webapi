@@ -1,31 +1,21 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
-
+<br />
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <div>BotFramework Canvas (v0.14.0)</div>
+        <iframe class="chat-iframe" data-src=@Html.Raw(string.Format("https://webchat.botframework.com/embed/rgammonfuncbot?v=0.14.0&t=##WEBCHAT_TOKEN##&userid={0}&username={1}", ViewBag.UserId, ViewBag.UserName))
+                width="350" height="600"></iframe>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <div>CCI Chat Canvas</div>
+        <iframe class="chat-iframe" data-src=@Html.Raw(string.Format("/BotCanvas?t=##LOCALHOST_TOKEN##&userid={0}&username={1}", ViewBag.UserId, ViewBag.UserName))
+                width="350" height="600"></iframe>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <div>LivePerson Canvas</div>
+        <iframe class="chat-iframe" src="/BotCanvas/LivePerson" width="350" height="600"></iframe>
     </div>
 </div>
+

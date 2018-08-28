@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>rgammonfuncbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+    <link href="Content/ccibotcanvas/node_modules/cci.botcanvas.library/botchat.css" rel="stylesheet" />
+    <link href="Content/ccibotcanvas/node_modules/cci.botcanvas.library/botchat-fullwindow.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="BotChatElement"></div>
+    <script src="Content/ccibotcanvas/node_modules/cci.botcanvas.library/botchat.js"></script>
+    <script>
+        var model = {
+            "userId": "@HttpUtility.JavaScriptStringEncode(ViewBag.UserId)",
+            "userName": "@HttpUtility.JavaScriptStringEncode(ViewBag.UserName)",
+            "botId": "rgammonfuncbot",
+            "botIconUrl": "//bot-framework.azureedge.net/bot-icons-v1/bot-framework-default.png",
+            "botName": "rgammonfuncbot",
+            "secret": "@HttpUtility.JavaScriptStringEncode(ViewBag.Secret)",
+            "iconUrl": "//bot-framework.azureedge.net/bot-icons-v1/bot-framework-default.png",
+            "directLineUrl": "https://webchat.botframework.com/v3/directline",
+            "webSocketEnabled": "true",
+            "speechTokenEndpoint": "https://api.botframework.com/v3/speechtoken",
+            "speechEnabled": false,
+            "cssUrl": "Content/ccibotcanvas/node_modules/cci.botcanvas.library/botchat.css",
+            "cssFullWindowUrl": "Content/ccibotcanvas/node_modules/cci.botcanvas.library/botchat-fullwindow.css",
+            "botChatJavaScriptUrl": "Content/ccibotcanvas/node_modules/cci.botcanvas.library/botchat.js",
+            "cognitiveServicesJavaScriptUrl": "Content/ccibotcanvas/node_modules/cci.botcanvas.library/CognitiveServices.js"
+        };
+    </script>
+    <script>
+        var speechOptions;
+    </script>
+
+    <script>
+        BotChat.App({
+            directLine: {
+                secret: model.secret,
+                token: model.token,
+                domain: model.directLineUrl,
+                webSocket: true
+            },
+            user: { id: model.userId, name: model.userName },
+            bot: { id: model.botId, name: model.botName },
+            resize: 'window',
+            speechOptions: speechOptions,
+            locale: 'en'
+        }, document.getElementById('BotChatElement'));
+    </script>
+</body>
+</html>
